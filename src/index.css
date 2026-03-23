@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --font-sans: "Outfit", "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-black text-white font-sans antialiased overflow-x-hidden selection:bg-white selection:text-black transition-colors duration-500 bg-black;
+  }
+}
+
+html.light-mode {
+  filter: invert(1) hue-rotate(180deg);
+  background-color: #ffffff; /* Smooth transition for root bounds */
+}
+
+/* Re-invert heavy graphic assets to preserve original colors in light mode */
+html.light-mode img,
+html.light-mode video {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html {
+  scroll-behavior: auto;
+}
